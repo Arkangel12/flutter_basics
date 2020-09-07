@@ -18,35 +18,27 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            customButton(
-              textOnButton: 'Product',
-              context: context,
-              route: ProductScreen.route(),
+            RaisedButton(
+              child: Text('Product'),
+              onPressed: () => Navigator.of(context).push(
+                ProductScreen.route(),
+              ),
             ),
-            customButton(
-              textOnButton: 'Cart',
-              context: context,
-              route: CartScreen.route(),
+            RaisedButton(
+              child: Text('Cart'),
+              onPressed: () => Navigator.of(context).push(
+                CartScreen.route(),
+              ),
             ),
-            customButton(
-              textOnButton: 'Profile',
-              context: context,
-              route: ProfileScreen.route(name: 'Arwen'),
-            ),
+            RaisedButton(
+              child: Text('Profile'),
+              onPressed: () => Navigator.of(context).push(
+                ProfileScreen.route(name: 'Arwen'),
+              ),
+            )
           ],
         ),
       ),
-    );
-  }
-
-  Widget customButton({
-    @required String textOnButton,
-    @required BuildContext context,
-    @required Route<dynamic> route,
-  }) {
-    return RaisedButton(
-      child: Text(textOnButton),
-      onPressed: () => Navigator.of(context).push(route),
     );
   }
 }
