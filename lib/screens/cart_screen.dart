@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CartScreen extends StatelessWidget {
-  static Route<dynamic> route() {
-    return MaterialPageRoute(
-      builder: (BuildContext context) => CartScreen(),
-    );
-  }
+  const CartScreen({Key key}): super(key: key);
 
   @override
   Widget build(BuildContext context) {

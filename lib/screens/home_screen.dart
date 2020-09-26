@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_basics/utils/app_routes.dart';
 
 class HomeScreen extends StatelessWidget {
-  HomeScreen({Key key, @required this.title}) : super(key: key);
-
   final String title;
+
+  const HomeScreen({
+    Key key,
+    @required this.title,
+  })  : assert(title != null, 'Title cannot be null'),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,24 +22,17 @@ class HomeScreen extends StatelessWidget {
           children: <Widget>[
             RaisedButton(
               child: Text('Product'),
-              onPressed: () => Navigator.of(context).pushNamed(AppRoutes.products),
-              // onPressed: () => Navigator.of(context).push(
-              //   ProductScreen.route(),
-              // ),
+              onPressed: () =>
+                  Navigator.of(context).pushNamed(AppRoutes.products),
             ),
             RaisedButton(
               child: Text('Cart'),
               onPressed: () => Navigator.of(context).pushNamed(AppRoutes.cart),
-              // onPressed: () => Navigator.of(context).push(
-              //   CartScreen.route(),
-              // ),
             ),
             RaisedButton(
               child: Text('Profile'),
-              onPressed: () => Navigator.of(context).pushNamed(AppRoutes.profile, arguments: 'Arwen'),
-              // onPressed: () => Navigator.of(context).push(
-              //   ProfileScreen.route(name: 'Arwen'),
-              // ),
+              onPressed: () => Navigator.of(context)
+                  .pushNamed(AppRoutes.profile, arguments: 'Arwen'),
             )
           ],
         ),

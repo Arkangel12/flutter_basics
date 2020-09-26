@@ -5,6 +5,8 @@ import 'package:flutter_basics/screens/products_screen.dart';
 import 'package:flutter_basics/screens/profile_screen.dart';
 import 'package:flutter_basics/screens/splash_screen.dart';
 import 'package:flutter_basics/utils/app_routes.dart';
+import 'package:flutter_basics/widgets/fade_transition_route.dart';
+import 'package:flutter_basics/widgets/scale_transition_route.dart';
 
 class App extends StatelessWidget {
   @override
@@ -15,16 +17,38 @@ class App extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      // home: SplashScreen(),
       initialRoute: AppRoutes.splashscreen,
-      routes: {
-        AppRoutes.splashscreen: (BuildContext context) => SplashScreen(),
-        AppRoutes.home: (BuildContext context) => HomeScreen(title: 'Hello Widgets',),
-        AppRoutes.products: (BuildContext context) => ProductScreen(),
-        AppRoutes.cart: (BuildContext context) => CartScreen(),
-        AppRoutes.profile: (BuildContext context) => ProfileScreen(),
+      onGenerateRoute: (settings) {
+        switch (settings.name) {
+          case (AppRoutes.splashscreen):
+            return MaterialPageRoute(
+                builder: (context) => const SplashScreen());
+          case (AppRoutes.home):
+            return MaterialPageRoute(
+              builder: (context) => const HomeScreen(
+                title: 'Hello Widgets',
+              ),
+            );
+          case (AppRoutes.products):
+            return FadeTransitionRoute(widget: const ProductScreen());
+          case (AppRoutes.cart):
+            return FadeTransitionRoute(widget: const CartScreen());
+          case (AppRoutes.profile):
+            final name = settings.arguments;
+            return ScaleTransitionRoute(
+              //This cannot be [const] because of the [name] variable
+              widget: ProfileScreen(
+                name: name,
+              ),
+            );
+          default:
+            return MaterialPageRoute(
+              builder: (context) => HomeScreen(
+                title: 'Hello Widgets',
+              ),
+            );
+        }
       },
-      onGenerateRoute: (setting){}, //TODO use in next video to replace route from above
     );
   }
 }
