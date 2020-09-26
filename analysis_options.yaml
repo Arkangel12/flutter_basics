@@ -1,0 +1,11 @@
+include: package:pedantic/analysis_options.yaml
+
+analyzer:
+  exclude:
+    - lib/**.g.dart
+    - lib/presentation/i18n/**.arb
+    - lib/presentation/i18n/messages_all.dart
+    - lib/presentation/i18n/messages_en.dart
+    - lib/presentation/i18n/messages_messages.dart
+  errors:
+    missing_required_param: error

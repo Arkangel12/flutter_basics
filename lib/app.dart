@@ -26,7 +26,7 @@ class App extends StatelessWidget {
           case (AppRoutes.home):
             return MaterialPageRoute(
               builder: (context) => const HomeScreen(
-                title: 'Hello Widgets',
+                title: 'Pedantic',
               ),
             );
           case (AppRoutes.products):
@@ -44,7 +44,7 @@ class App extends StatelessWidget {
           default:
             return MaterialPageRoute(
               builder: (context) => HomeScreen(
-                title: 'Hello Widgets',
+                title: 'Pedantic',
               ),
             );
         }
