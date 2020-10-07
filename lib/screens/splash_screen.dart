@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_basics/utils/app_routes.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key key}): super(key: key);
+  const SplashScreen({Key key}) : super(key: key);
 
   @override
   _SplashScreenState createState() => _SplashScreenState();
@@ -13,7 +13,10 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     Future.delayed(
       Duration(milliseconds: 1000),
-      () => Navigator.of(context).pushReplacementNamed(AppRoutes.home),
+      () => Navigator.of(context).pushNamedAndRemoveUntil(
+        AppRoutes.home,
+        (route) => false,
+      ),
     );
     super.initState();
   }

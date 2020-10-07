@@ -26,11 +26,11 @@ class App extends StatelessWidget {
           case (AppRoutes.home):
             return MaterialPageRoute(
               builder: (context) => const HomeScreen(
-                title: 'Pedantic',
+                title: 'Either',
               ),
             );
           case (AppRoutes.products):
-            return FadeTransitionRoute(widget: const ProductScreen());
+            return FadeTransitionRoute(widget: ProductScreen());
           case (AppRoutes.cart):
             return FadeTransitionRoute(widget: const CartScreen());
           case (AppRoutes.profile):
@@ -44,7 +44,7 @@ class App extends StatelessWidget {
           default:
             return MaterialPageRoute(
               builder: (context) => HomeScreen(
-                title: 'Pedantic',
+                title: '@ArkangelB',
               ),
             );
         }
