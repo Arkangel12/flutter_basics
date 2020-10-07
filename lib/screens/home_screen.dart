@@ -33,7 +33,12 @@ class HomeScreen extends StatelessWidget {
               child: Text('Profile'),
               onPressed: () => Navigator.of(context)
                   .pushNamed(AppRoutes.profile, arguments: 'Arwen'),
-            )
+            ),
+            RaisedButton(
+              child: Text('Todos'),
+              onPressed: () => Navigator.of(context)
+                  .pushNamed(AppRoutes.todos),
+            ),
           ],
         ),
       ),

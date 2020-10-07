@@ -4,6 +4,7 @@ import 'package:flutter_basics/screens/home_screen.dart';
 import 'package:flutter_basics/screens/products_screen.dart';
 import 'package:flutter_basics/screens/profile_screen.dart';
 import 'package:flutter_basics/screens/splash_screen.dart';
+import 'package:flutter_basics/screens/todo_screen.dart';
 import 'package:flutter_basics/utils/app_routes.dart';
 import 'package:flutter_basics/widgets/fade_transition_route.dart';
 import 'package:flutter_basics/widgets/scale_transition_route.dart';
@@ -30,7 +31,7 @@ class App extends StatelessWidget {
               ),
             );
           case (AppRoutes.products):
-            return FadeTransitionRoute(widget: ProductScreen());
+            return FadeTransitionRoute(widget: const ProductScreen());
           case (AppRoutes.cart):
             return FadeTransitionRoute(widget: const CartScreen());
           case (AppRoutes.profile):
@@ -41,6 +42,8 @@ class App extends StatelessWidget {
                 name: name,
               ),
             );
+          case (AppRoutes.todos):
+            return FadeTransitionRoute(widget: const TodoScreen());
           default:
             return MaterialPageRoute(
               builder: (context) => HomeScreen(

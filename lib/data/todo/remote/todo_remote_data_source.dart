@@ -11,7 +11,7 @@ abstract class TodoRemoteDataSource {
 class TodoRemoteDataSourceImpl implements TodoRemoteDataSource {
   @override
   Future<Either<Failure, List<Todo>>> getTodos() async {
-    var response = await http.get('$baseApiEndpoint/todo');
+    var response = await http.get('$baseApiEndpoint/todos');
 
     if (response.statusCode == 200) {
       return Right(todoFromJson(response.body));
